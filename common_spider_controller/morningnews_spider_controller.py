@@ -1,20 +1,18 @@
-import sys
-sys.path.append('../mornnews_spider/')
-import HEJNewsNetSpider
-import NBDNewsNetSpider
-import FXNewsForexNetSpider
-import FXNewsMetalNetSpider
-import FXNewsFutureNetSpider
-import FXNewsStockNetSpider
-import TakNewsStockNetSpider
-import YiCaiStockNetSpider
-import CNNewsNetSpider
-import XQNewsNetSpider
-import QQNewsNetSpider
-import YiCaiFinanceNetSpider
-import QJNewsStockNetSpider
-import HTNewsNetSpider
-import CXNewsNetSpider
+import mornnews_spider.HEJNewsNetSpider
+import mornnews_spider.NBDNewsNetSpider
+import mornnews_spider.FXNewsForexNetSpider
+import mornnews_spider.FXNewsMetalNetSpider
+import mornnews_spider.FXNewsFutureNetSpider
+import mornnews_spider.FXNewsStockNetSpider
+import mornnews_spider.TakNewsStockNetSpider
+import mornnews_spider.YiCaiStockNetSpider
+import mornnews_spider.CNNewsNetSpider
+import mornnews_spider.XQNewsNetSpider
+import mornnews_spider.QQNewsNetSpider
+import mornnews_spider.YiCaiFinanceNetSpider
+import mornnews_spider.QJNewsStockNetSpider
+import mornnews_spider.HTNewsNetSpider
+import mornnews_spider.CXNewsNetSpider
 
 def crawDailyNews():
     

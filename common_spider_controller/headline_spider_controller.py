@@ -1,14 +1,12 @@
-import sys
-sys.path.append('../headlines_spider/')
-import ForbesFinanceHLNetSpider
-import FortuneFinanceHLNetSpider
-import FTFinanceHLNetSpider
-import TakFinanceHLNetSpider
-import NBDFinanceHLNetSpider
-import CCTVFinanceHLNetSpider
-import JRJFinanceHLNetSpider
-import CXFinanceHLNetSpider
-import JMHotmarketNetSpider
+import headlines_spider.ForbesFinanceHLNetSpider
+import headlines_spider.FortuneFinanceHLNetSpider
+import headlines_spider.FTFinanceHLNetSpider
+import headlines_spider.TakFinanceHLNetSpider
+import headlines_spider.NBDFinanceHLNetSpider
+import headlines_spider.CCTVFinanceHLNetSpider
+import headlines_spider.JRJFinanceHLNetSpider
+import headlines_spider.CXFinanceHLNetSpider
+import headlines_spider.JMHotmarketNetSpider
 
 def crawDataCenter():
     
