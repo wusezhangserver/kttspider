@@ -10,6 +10,7 @@ def crawYCFinanceHLDataSource(link):
     browsor = webdriver.PhantomJS()
     browsor.get(link)
     courrentContext = browsor.find_elements_by_tag_name('dl')
+
     for  currentDiv in  courrentContext:
          try:
               imageObj = currentDiv.find_element_by_tag_name('img')
@@ -33,6 +34,7 @@ def writeFinanceHLDataSource():
     dbManager.executeUpdateOrDelete(SQL)
 
     currentArray = crawYCFinanceHLDataSource(link)
+    print currentArray
     formatSQL = 'INSERT MORNING_FINANCENEWS_RESOURCE_TABLE ' \
                 '(KEYID,LINKURL,IMAGEURL,TITLE,PUBDATE,DESCRIPTCONTEXT,NEWSFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
