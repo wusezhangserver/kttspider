@@ -1,18 +1,18 @@
-import mornnews_spider.HEJNewsNetSpider
-import mornnews_spider.NBDNewsNetSpider
-import mornnews_spider.FXNewsForexNetSpider
-import mornnews_spider.FXNewsMetalNetSpider
-import mornnews_spider.FXNewsFutureNetSpider
-import mornnews_spider.FXNewsStockNetSpider
-import mornnews_spider.TakNewsStockNetSpider
-import mornnews_spider.YiCaiStockNetSpider
-import mornnews_spider.CNNewsNetSpider
-import mornnews_spider.XQNewsNetSpider
-import mornnews_spider.QQNewsNetSpider
-import mornnews_spider.YiCaiFinanceNetSpider
-import mornnews_spider.QJNewsStockNetSpider
-import mornnews_spider.HTNewsNetSpider
-import mornnews_spider.CXNewsNetSpider
+from mornnews_spider import HEJNewsNetSpider
+from mornnews_spider import NBDNewsNetSpider
+from mornnews_spider import FXNewsForexNetSpider
+from mornnews_spider import FXNewsMetalNetSpider
+from mornnews_spider import FXNewsFutureNetSpider
+from mornnews_spider import FXNewsStockNetSpider
+from mornnews_spider import TakNewsStockNetSpider
+from mornnews_spider import YiCaiStockNetSpider
+from mornnews_spider import CNNewsNetSpider
+from mornnews_spider import XQNewsNetSpider
+from mornnews_spider import QQNewsNetSpider
+from mornnews_spider import YiCaiFinanceNetSpider
+from mornnews_spider import QJNewsStockNetSpider
+from mornnews_spider import HTNewsNetSpider
+from mornnews_spider import CXNewsNetSpider
 
 def crawDailyNews():
     
