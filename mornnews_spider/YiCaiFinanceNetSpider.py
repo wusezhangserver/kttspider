@@ -1,8 +1,6 @@
 import  time
 import  uuid
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsMysqlUtils
+import commonutils_spider.CommonsMysqlUtils
 from  selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 

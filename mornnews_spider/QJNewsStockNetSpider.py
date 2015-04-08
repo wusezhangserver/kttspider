@@ -1,7 +1,5 @@
 from  selenium import webdriver
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsMysqlUtils
+import commonutils_spider.CommonsMysqlUtils
 import time
 import uuid
 

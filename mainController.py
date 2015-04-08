@@ -6,4 +6,4 @@ import common_spider_controller.headline_spider_controller
 
 
 if __name__ == '__main__':
-   print ''
+   morningnews_spider_controller.crawDailyNews()
