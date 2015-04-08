@@ -1,0 +1,9 @@
+import common_spider_controller.morningnews_spider_controller
+import common_spider_controller.dailyblog_spider_controller
+import common_spider_controller.dailycomment_spider_controller
+import common_spider_controller.datacenter_spider_controller
+import common_spider_controller.headline_spider_controller
+
+
+if __name__ == '__main__':
+   print ''
