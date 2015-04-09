@@ -1,10 +1,8 @@
-import  sys
-sys.path.append("../dailyblog_spider/")
-sys.path.append("../comment_spider/")
-import HexunBlogSpider
-import SinaBlogSpider
-import StockstarBlogSpider
-import CommonsRecodeErrorUtils
+
+from dailyblog_spider import HexunBlogSpider
+from dailyblog_spider import SinaBlogSpider
+from dailyblog_spider import StockstarBlogSpider
+from commonutils_spider import CommonsRecodeErrorUtils
 import uuid
 import time
 from distutils import log
@@ -39,8 +37,5 @@ def updateBlogData():
         
     print '----START CRAW ERROR INFORMATION----'
     CommonsRecodeErrorUtils.commonRedcodeError(currentList)     
-    
-      
-if __name__ =="__main__":
-    updateBlogData()
+
 

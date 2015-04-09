@@ -34,7 +34,6 @@ def writeFinanceHLDataSource():
     dbManager.executeUpdateOrDelete(SQL)
 
     currentArray = crawYCFinanceHLDataSource(link)
-    print currentArray
     formatSQL = 'INSERT MORNING_FINANCENEWS_RESOURCE_TABLE ' \
                 '(KEYID,LINKURL,IMAGEURL,TITLE,PUBDATE,DESCRIPTCONTEXT,NEWSFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
