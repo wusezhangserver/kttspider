@@ -1,7 +1,5 @@
 import uuid
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsMysqlUtils
+from commonutils_spider import CommonsMysqlUtils
 from  selenium import webdriver
 
 

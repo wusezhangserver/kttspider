@@ -1,12 +1,12 @@
-import headlines_spider.ForbesFinanceHLNetSpider
-import headlines_spider.FortuneFinanceHLNetSpider
-import headlines_spider.FTFinanceHLNetSpider
-import headlines_spider.TakFinanceHLNetSpider
-import headlines_spider.NBDFinanceHLNetSpider
-import headlines_spider.CCTVFinanceHLNetSpider
-import headlines_spider.JRJFinanceHLNetSpider
-import headlines_spider.CXFinanceHLNetSpider
-import headlines_spider.JMHotmarketNetSpider
+from headlines_spider import ForbesFinanceHLNetSpider
+from headlines_spider import FortuneFinanceHLNetSpider
+from headlines_spider import FTFinanceHLNetSpider
+from headlines_spider import TakFinanceHLNetSpider
+from headlines_spider import NBDFinanceHLNetSpider
+from headlines_spider import CCTVFinanceHLNetSpider
+from headlines_spider import JRJFinanceHLNetSpider
+from headlines_spider import CXFinanceHLNetSpider
+from headlines_spider import JMHotmarketNetSpider
 
 def crawDataCenter():
     
