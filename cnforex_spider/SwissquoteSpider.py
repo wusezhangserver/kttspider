@@ -66,11 +66,4 @@ def writeSwissquoteTodayNews():
 
         
 if __name__=="__main__":
-    writeSwissquoteTodayNews();       
-        
-        
-        
-        
-        
-        
-        
+    writeSwissquoteTodayNews()
