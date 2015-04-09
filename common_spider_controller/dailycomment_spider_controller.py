@@ -1,22 +1,19 @@
-import  sys
-from warnings import catch_warnings
-sys.path.append("../comment_spider/")
-import HuiTongNetSpider
-import AdsNetSpider
-import ForexNetSpider
-import GXMetalNetSpider
-import JTMetalNetSpider
-import SYMetalNetSpider
-import ZZStockNetSpider
-import HGStockNetSpider
-import JFStockNetSpider
-import QJStockNetSpider
-import QJFinanceNetSpider
-import IFengFinanceNetSpider
-import SinaFinanceNetSpider
-import QQFinanceNetSpider
-import SilverMetalNetSpider
-import CommonsRecodeErrorUtils
+from comment_spider import HuiTongNetSpider
+from comment_spider import AdsNetSpider
+from comment_spider import ForexNetSpider
+from comment_spider import GXMetalNetSpider
+from comment_spider import JTMetalNetSpider
+from comment_spider import SYMetalNetSpider
+from comment_spider import ZZStockNetSpider
+from comment_spider import HGStockNetSpider
+from comment_spider import JFStockNetSpider
+from comment_spider import QJStockNetSpider
+from comment_spider import QJFinanceNetSpider
+from comment_spider import IFengFinanceNetSpider
+from comment_spider import SinaFinanceNetSpider
+from comment_spider import QQFinanceNetSpider
+from comment_spider import SilverMetalNetSpider
+from commonutils_spider import CommonsRecodeErrorUtils
 import uuid
 import time
 
