@@ -1,7 +1,5 @@
 from  selenium import webdriver
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsMysqlUtils
+from commonutils_spider import CommonsMysqlUtils
 
 def crawPMIDataSource(link,keyList):
     browsor = webdriver.PhantomJS()
