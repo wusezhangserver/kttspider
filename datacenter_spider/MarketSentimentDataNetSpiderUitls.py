@@ -1,5 +1,5 @@
 from commonutils_spider import CommonsSpiderUtils
-import CommonsMysqlUtils
+from commonutils_spider import CommonsMysqlUtils
 
 def returnStartContext(link,startTarget):
     return CommonsSpiderUtils.returnCommonStartContext(link,startTarget)
