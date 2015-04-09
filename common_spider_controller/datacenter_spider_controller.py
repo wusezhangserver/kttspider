@@ -1,17 +1,15 @@
-import sys
-sys.path.append('../datacenter_spider/')
-import ForexGoldDataNetSpider
-import MarketSentimentDataNetSpider
-import StockAccountDataNetSpider
-import TradeActivityDataNetSpider
-import IndexFutureDataNetSpider
-import BulkCargoTransDataNetSpider
-import shiborDataNetSpider
-import LPRDataNetSpider
-import PMIDataNetSpider
-import SocialPowerDataNetSpider
-import DollarIndexDataNetSpider
-import MarginTradeDataNetSpider
+from datacenter_spider import ForexGoldDataNetSpider
+from datacenter_spider import MarketSentimentDataNetSpider
+from datacenter_spider import StockAccountDataNetSpider
+from datacenter_spider import TradeActivityDataNetSpider
+from datacenter_spider import IndexFutureDataNetSpider
+from datacenter_spider import BulkCargoTransDataNetSpider
+from datacenter_spider import shiborDataNetSpider
+from datacenter_spider import LPRDataNetSpider
+from datacenter_spider import PMIDataNetSpider
+from datacenter_spider import SocialPowerDataNetSpider
+from datacenter_spider import DollarIndexDataNetSpider
+from datacenter_spider import MarginTradeDataNetSpider
 
 def  crawDataCenter():
 
