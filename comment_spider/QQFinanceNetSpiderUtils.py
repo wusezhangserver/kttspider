@@ -1,7 +1,5 @@
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsSpiderUtils
-import CommonsMysqlUtils
+from commonutils_spider import CommonsSpiderUtils
+from commonutils_spider import CommonsMysqlUtils
 
 def returnStartContext(link,startTarget):
     return CommonsSpiderUtils.returnCommonStartContext(link,startTarget).decode('gb2312').decode('UTF-8')
