@@ -48,5 +48,3 @@ def crawDataCenter():
     print '----START CRAW JMHOTMARKET DATA ---'
     JMHotmarketNetSpider.writeJMHotMarketDataSource()
 
-if __name__=='__main__':
-    crawDataCenter()  

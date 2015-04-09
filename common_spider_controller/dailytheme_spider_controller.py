@@ -1,12 +1,10 @@
-import sys
-sys.path.append('../themenews_spider/')
-import CompanyNewsSpider
-import ImportantNewsSpider
-import ThemeNewsSpider
-import YiCaiCompanyNewsSpider
-import PwThemeNewsSpider
-import CriCompanyNewsSpider
-import StcnThemeNewsSpider
+from themenews_spider import CompanyNewsSpider
+from themenews_spider import ImportantNewsSpider
+from themenews_spider import ThemeNewsSpider
+from themenews_spider import YiCaiCompanyNewsSpider
+from themenews_spider import PwThemeNewsSpider
+from themenews_spider import CriCompanyNewsSpider
+from themenews_spider import StcnThemeNewsSpider
 
 
 def  crawThemeNews():
@@ -37,6 +35,3 @@ def  crawThemeNews():
     #CRAW THE StcnTheme NEWS
     print '----START CRAW THE StcnTheme NEWS----'
     StcnThemeNewsSpider.writeDailyThemeNews()
-    
-if __name__ == '__main__':
-    crawThemeNews()   

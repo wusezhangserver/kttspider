@@ -1,6 +1,7 @@
 from common_spider_controller import morningnews_spider_controller
 from common_spider_controller import headline_spider_controller
 from common_spider_controller import dailyblog_spider_controller
+from common_spider_controller import dailytheme_spider_controller
 
 if __name__ == '__main__':
    print '********************************start spider  morningnews********************'
@@ -9,3 +10,5 @@ if __name__ == '__main__':
    headline_spider_controller.crawDataCenter()
    print '********************************start spider dailyblog********************'
    dailyblog_spider_controller.updateBlogData()
+   print '********************************start spider dailytheme********************'
+   dailytheme_spider_controller.crawThemeNews()

@@ -76,5 +76,3 @@ def crawDailyNews():
     print '----START CRAW CX STOCK NEWS----'
     CXNewsNetSpider.writeMorningDailyNews()
 
-if __name__=='__main__':
-    crawDailyNews()
