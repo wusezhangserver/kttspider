@@ -1,8 +1,6 @@
 from  selenium import webdriver
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsMysqlUtils
-import CommonsTimeUtils
+from commonutils_spider import CommonsMysqlUtils
+from commonutils_spider import CommonsTimeUtils
 import uuid
 
 def dailyCnfolBlogSpider(link):

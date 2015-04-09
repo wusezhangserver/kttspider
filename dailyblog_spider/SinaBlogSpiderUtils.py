@@ -1,7 +1,5 @@
-import sys
-sys.path.append("../commonutils_spider/")
-import CommonsSpiderUtils
-import CommonsMysqlUtils
+from commonutils_spider import CommonsSpiderUtils
+from commonutils_spider import CommonsMysqlUtils
 
 def returnStartContext(link):
     currentContext = CommonsSpiderUtils.openUrl(link)
