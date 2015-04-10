@@ -1,6 +1,7 @@
 import  time
 import  uuid
 from commonutils_spider import CommonsMysqlUtils
+from commonutils_spider import CommonsInitValue
 from  selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
@@ -11,18 +12,21 @@ def crawYCFinanceHLDataSource(link):
     browsor.get(link)
     courrentContext = browsor.find_elements_by_tag_name('dl')
 
-    for  currentDiv in  courrentContext:
+    for currentDiv in  courrentContext:
          try:
-              imageObj = currentDiv.find_element_by_tag_name('img')
-              imageUrl = imageObj.get_attribute('src')
-              pubDate = time.strftime("%Y-%m-%d %X",time.localtime())
               titleObj = currentDiv.find_element_by_tag_name('h1')
               title = titleObj.text
               linkUrl = titleObj.find_element_by_tag_name('a').get_attribute('href')
               descriptContext = currentDiv.find_element_by_tag_name('p').text
-              listArray.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'CHINA','YCNET'])
+              pubDate = CommonsInitValue.initTempImage()
+              try:
+                  imageObj = currentDiv.find_element_by_tag_name('img')
+                  imageUrl = imageObj.get_attribute('src')
+              except NoSuchElementException,e:
+                  imageUrl = CommonsInitValue.initTempImage()
          except NoSuchElementException,e:
               continue
+         listArray.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'CHINA','YCNET'])
     return listArray
 
 def writeFinanceHLDataSource():
