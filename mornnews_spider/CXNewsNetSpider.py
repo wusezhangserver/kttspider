@@ -1,6 +1,7 @@
 from  selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from commonutils_spider import CommonsMysqlUtils
+from commonutils_spider import CommonsInitValue
 import  time
 import  uuid
 
@@ -10,7 +11,7 @@ def crawMorningDailyNews(link):
     browsor.get(link)
     mainContext = browsor.find_element_by_id('listArticle')
     listContext = mainContext.find_elements_by_class_name('boxa')
-    initImage = 'http://216.189.56.159/imagelib/iconresource/editor/2x_web/ic_insert_invitation_grey600_36dp.png'
+    initImage = CommonsInitValue.initTempImage()
     for context in listContext:
         try:
             imageContext = context.find_element_by_class_name('pic')
