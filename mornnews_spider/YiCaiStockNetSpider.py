@@ -14,7 +14,7 @@ def crawYiCaiStockDailyNews(link):
         try:
           titleValue = context.find_element_by_tag_name('h1')
           descriptContext = context.find_element_by_tag_name('p').text
-          pubDate = time.strftime("%Y-%m-%d %X",time.localtime())
+          pubDate = CommonsInitValue.initNowTime()
           linkUrl = context.find_element_by_tag_name('a').get_attribute('href')
           try:
               imageObj = context.find_element_by_tag_name('img')

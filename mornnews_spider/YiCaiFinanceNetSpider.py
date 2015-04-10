@@ -18,7 +18,7 @@ def crawYCFinanceHLDataSource(link):
               title = titleObj.text
               linkUrl = titleObj.find_element_by_tag_name('a').get_attribute('href')
               descriptContext = currentDiv.find_element_by_tag_name('p').text
-              pubDate = CommonsInitValue.initTempImage()
+              pubDate = CommonsInitValue.initNowTime()
               try:
                   imageObj = currentDiv.find_element_by_tag_name('img')
                   imageUrl = imageObj.get_attribute('src')
