@@ -2,8 +2,8 @@ from  selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from commonutils_spider import CommonsMysqlUtils
 from commonutils_spider import CommonsInitValue
-import  time
-import  uuid
+import time
+import uuid
 
 def crawMorningDailyNews(link):
     listArray = []
