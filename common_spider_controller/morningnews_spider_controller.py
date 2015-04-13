@@ -13,9 +13,16 @@ from mornnews_spider import YiCaiFinanceNetSpider
 from mornnews_spider import QJNewsStockNetSpider
 from mornnews_spider import HTNewsNetSpider
 from mornnews_spider import CXNewsNetSpider
+from commonutils_spider import CommonsRecodeErrorUtils
+from commonutils_spider import CommonsInitValue
+import uuid
+
 
 def crawDailyNews():
-    
+
+    currentList = []
+    currentTime = CommonsInitValue.initNowTime()
+
     # CRAW HEJNEWS COMMENTS NEWS SIPDER
     #print '----START CRAW HEJNEWS NEWS----'
     #HEJNewsNetSpider.writeMorningDailyNews()
@@ -74,5 +81,8 @@ def crawDailyNews():
     HTNewsNetSpider.writeMorningForexDailyNews()
 
     print '----START CRAW CX STOCK NEWS----'
-    CXNewsNetSpider.writeMorningDailyNews()
-
+    try:
+        CXNewsNetSpider.writeMorningDailyNews()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'CXNewsNetSpider.writeMorningDailyNews',e])
+    CommonsRecodeErrorUtils.commonRedcodeError(currentList)
