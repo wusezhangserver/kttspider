@@ -1,6 +1,8 @@
 from commonutils_spider import CommonsMysqlUtils
 from commonutils_spider import CommonsInitValue
 from selenium import webdriver
+import uuid
+
 
 def crawCnForexImages(link):
     currentArray = []
@@ -11,7 +13,7 @@ def crawCnForexImages(link):
         linkUrl = model.find_element_by_tag_name('a').get_attribute('href')
         imageUrl = model.find_element_by_tag_name('img').get_attribute('src')
         pubDate = CommonsInitValue.returnCreateDate(model.find_element_by_tag_name('p').text)
-        print linkUrl+':'+imageUrl+':'+pubDate
+        currentArray.append([str(uuid.uuid1()),imageUrl,linkUrl,pubDate,'CNFOREXNET'])
 
 
 
@@ -20,6 +22,18 @@ def crawCnForexImages(link):
 def writeForexImages():
     link = 'http://www.cnforex.com/news/tuce/'
     currentArray = crawCnForexImages(link)
-        
+    dbManager = CommonsMysqlUtils._dbManager
+    selectSQL = " SELECT  SUBSTRING(RESOURCE.JYRQ,1,10) AS JYRQ " \
+                " FROM  DATACENTER_MARGINTRADE_RESOURCE_TABLE RESOURCE WHERE 1=1 "
+    selectDict =dbManager.selectDictMany(selectSQL)
+    keyList = []
+    for current_dict in selectDict:
+            for (key,value) in current_dict.iteritems():
+                keyList.append(value)
+
+    formatSQL = ' INSERT INTO  FOREXPIC_PICTURE_RESOURCE_TABLE(ID,IMAGEURL,LINKURL,PUBDATE,SOURCEFLAG)' \
+                ' VALUES(%s,%s,%s,%s,%s)'
+    dbManager.executeManyInsert(formatSQL,currentArray)
+
 if __name__ == '__main__':
     writeForexImages()
