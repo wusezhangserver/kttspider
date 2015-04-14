@@ -36,6 +36,3 @@ def writeForexImages():
     formatSQL = ' INSERT INTO  FOREXPIC_PICTURE_RESOURCE_TABLE(ID,IMAGEURL,LINKURL,PUBDATE,SOURCEFLAG)' \
                 ' VALUES(%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,currentArray)
-
-if __name__ == '__main__':
-    writeForexImages()
