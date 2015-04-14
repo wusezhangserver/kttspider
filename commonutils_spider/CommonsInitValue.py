@@ -22,3 +22,7 @@ def returnCreateDate(text):
     if len(group[1])<2:
         group[1] ='0'+ group[1]
     return currentYear+'-'+ group[0]+'-'+group[1]
+
+def splitCreateDate(text,target,returnnum):
+    listContext = text.split(target)
+    return listContext[returnnum]

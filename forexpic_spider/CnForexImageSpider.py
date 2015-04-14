@@ -25,7 +25,8 @@ def writeForexImages():
     link = 'http://www.cnforex.com/news/tuce/'
     dbManager = CommonsMysqlUtils._dbManager
     selectSQL = " SELECT  RESOURCE.IMAGEURL  " \
-                " FROM  FOREXPIC_PICTURE_RESOURCE_TABLE RESOURCE WHERE 1=1 "
+                " FROM  FOREXPIC_PICTURE_RESOURCE_TABLE RESOURCE" \
+                " WHERE 1=1  AND RESOURCE.SOURCEFLAG ='CNFOREXNET' "
     selectDict =dbManager.selectDictMany(selectSQL)
     keyList = []
     for current_dict in selectDict:
