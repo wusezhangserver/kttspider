@@ -13,7 +13,8 @@ def crawCnForexImages(link,keyList):
         imageUrl = model.find_element_by_tag_name('img').get_attribute('src')
         pubDate = CommonsInitValue.returnCreateDate(model.find_element_by_tag_name('p').text)
         if not (imageUrl in keyList):
-            currentArray.append([str(uuid.uuid1()),imageUrl,linkUrl,pubDate,'CNFOREXNET'])
+            mianId = str(uuid.uuid1())
+            currentArray.append([mianId,imageUrl,linkUrl,pubDate,'CNFOREXNET'])
     return currentArray
         
 def writeForexImages():
