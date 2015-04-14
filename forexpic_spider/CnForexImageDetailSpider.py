@@ -20,6 +20,5 @@ def writeCnForexImageDetail(detailArray):
     dbManager = CommonsMysqlUtils._dbManager
     SQL ='INSERT  INTO FOREXPIC_PICDETAIL_RESOURCE_TABLE (ID,PID,IMAGEURL,DISCRIPTIONCONTEXT) VALUES(%s,%s,%s,%s)'
     for obj in detailArray:
-        print obj[1]+':'+obj[0]
         list = crawCnForexImageDetail(obj[1],obj[0])
         dbManager.executeManyInsert(SQL,list)

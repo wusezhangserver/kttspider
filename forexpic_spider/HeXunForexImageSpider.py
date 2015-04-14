@@ -3,9 +3,12 @@ from commonutils_spider import CommonsInitValue
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import uuid
+import HeXunForexImageDetailSpider
+
 
 def crawHeXunForexImage(link,keyList):
     currentArray =[]
+    detaiArray=[]
     browsor = webdriver.PhantomJS()
     browsor.get(link)
     imageList = browsor.find_element_by_class_name('tupianpindao')
@@ -20,8 +23,10 @@ def crawHeXunForexImage(link,keyList):
             if not (imageUrl in keyList):
                 mianId = str(uuid.uuid1())
                 currentArray.append([mianId,imageUrl,linkUrl,pubDate,'HEXUNFOREXNET',descriptContext])
+                detaiArray.append([mianId,linkUrl])
         except NoSuchElementException,e:
             continue
+    HeXunForexImageDetailSpider.writeHeXunForexImageDetail(detaiArray)
     return currentArray
 
 def writeHeXunForexImage():
@@ -40,8 +45,3 @@ def writeHeXunForexImage():
     formatSQL = ' INSERT INTO  FOREXPIC_PICTURE_RESOURCE_TABLE(ID,IMAGEURL,LINKURL,PUBDATE,SOURCEFLAG,DISCRIPTIONTEXT)' \
                 ' VALUES(%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,currentArray)
-
-
-
-if __name__ == '__main__':
-    writeHeXunForexImage()
