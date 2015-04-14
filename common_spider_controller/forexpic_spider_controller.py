@@ -2,7 +2,7 @@ from distutils import log
 from forexpic_spider import CnForexImageSpider
 from forexpic_spider import HeXunForexImageSpider
 
-def  updateDailyForexPic():
+def updateDailyForexPic():
 
     log.info('The system crawling the resource of forex picture ')
     print '----START CRAW THE FOREX PICTURE----'
