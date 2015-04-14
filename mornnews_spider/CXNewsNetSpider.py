@@ -37,7 +37,3 @@ def writeMorningDailyNews():
                 ' (KEYID,LINKURL,IMAGEURL,TITLE,PUBDATE,DESCRIPTCONTEXT,NEWSFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,listArray)
-
-
-if __name__ == '__main__':
-    writeMorningDailyNews()
