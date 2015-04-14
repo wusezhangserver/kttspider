@@ -1,10 +1,12 @@
 from commonutils_spider import CommonsMysqlUtils
 from commonutils_spider import CommonsInitValue
 from selenium import webdriver
+import CnForexImageDetailSpider
 import uuid
 
 def crawCnForexImages(link,keyList):
     currentArray = []
+    detaiArray = []
     browsor = webdriver.PhantomJS()
     browsor.get(link)
     imageList = browsor.find_elements_by_class_name('imgModel')
@@ -15,6 +17,8 @@ def crawCnForexImages(link,keyList):
         if not (imageUrl in keyList):
             mianId = str(uuid.uuid1())
             currentArray.append([mianId,imageUrl,linkUrl,pubDate,'CNFOREXNET'])
+            detaiArray.append([mianId,linkUrl])
+    CnForexImageDetailSpider.writeCnForexImageDetail(detaiArray)
     return currentArray
         
 def writeForexImages():
