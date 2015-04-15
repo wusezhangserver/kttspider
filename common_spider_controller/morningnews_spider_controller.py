@@ -59,8 +59,11 @@ def crawDailyNews():
     
     # CRAW YICAISTOCK COMMENTS NEWS SIPDER
     print '----START CRAW YICAISTOCK NEWS----'
-    YiCaiStockNetSpider.writeYiCaiStockDataSource()
-    
+    try:
+        YiCaiStockNetSpider.writeYiCaiStockDataSource()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'YiCaiStockNetSpider.writeYiCaiStockDataSource',e])
+
     # CRAW 21CNNEWS NEWS SIPDER
     print '----START CRAW 21CNNEWS NEWS----'
     CNNewsNetSpider.writeCNStockNetDailyNews()
