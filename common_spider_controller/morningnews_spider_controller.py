@@ -73,8 +73,11 @@ def crawDailyNews():
     XQNewsNetSpider.writeXQNewsNetDataSource()
 
     # CRAW YICAI NEWS SIPDER #
-    print  '----START CRAW YCFINANCE NEWS----'
-    YiCaiFinanceNetSpider.writeFinanceHLDataSource()
+    print '----START CRAW YCFINANCE NEWS----'
+    try:
+        YiCaiFinanceNetSpider.writeFinanceHLDataSource()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'YiCaiFinanceNetSpider.writeFinanceHLDataSource',e])
 
     # CRAW QJ STOCK NEWS SIPDER #
     print  '----START CRAW QJ STOCK NEWS----'
