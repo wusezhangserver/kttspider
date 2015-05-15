@@ -1,5 +1,5 @@
 from mornnews_spider import HEJNewsNetSpider
-from mornnews_spider import NBDNewsNetSpider
+from mornnews_spider import NBDNewsNetSpider_BF
 from mornnews_spider import FXNewsForexNetSpider
 from mornnews_spider import FXNewsMetalNetSpider
 from mornnews_spider import FXNewsFutureNetSpider
@@ -35,7 +35,7 @@ def crawDailyNews():
         print e
     # CRAW NBDNEWS COMMENTS NEWS SIPDER
     print '----START CRAW NBDNEWS NEWS----'
-    NBDNewsNetSpider.writeMorningDailyNews()
+    NBDNewsNetSpider_BF.writeMorningDailyNews()
     
     # CRAW FXNEWS COMMENTS NEWS SIPDER
     print '----START CRAW FXNEWS NEWS----'
