@@ -9,7 +9,7 @@ def crawMorningForexDailyNews(link):
     browsor = webdriver.PhantomJS()
     browsor.get(link)
     resultList = browsor.find_element_by_id('analysis_ul').find_elements_by_tag_name('li')
-    for div  in  resultList:
+    for div in resultList:
         descriptContext  = div.find_element_by_class_name('touzi_font').find_element_by_tag_name('p').text
         imageUrl = div.find_element_by_class_name('new_6_pic').find_element_by_tag_name('img').get_attribute('src')
         linkUrl = div.find_element_by_class_name('new_6_pic').find_element_by_tag_name('a').get_attribute('href')
