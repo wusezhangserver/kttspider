@@ -17,7 +17,7 @@ def crawMorningForexDailyNews(link):
            pubDate = CommonsInitValue.initNowTime()
            descriptContext = context.find_element_by_tag_name('p').text
         except NoSuchElementException,e:
-           continue
+            continue
         currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'FOREX','INVESTINGNET'])
     return currentList
 
