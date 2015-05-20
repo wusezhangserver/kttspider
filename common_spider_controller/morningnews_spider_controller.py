@@ -13,6 +13,7 @@ from mornnews_spider import YiCaiFinanceNetSpider
 from mornnews_spider import QJNewsStockNetSpider
 from mornnews_spider import HTNewsNetSpider
 from mornnews_spider import CXNewsNetSpider
+from mornnews_spider import InvestingNewsForexSpider
 from commonutils_spider import CommonsRecodeErrorUtils
 from commonutils_spider import CommonsInitValue
 import uuid
@@ -85,6 +86,9 @@ def crawDailyNews():
 
     print '----START CRAW HT FOREX NEWS----'
     HTNewsNetSpider.writeMorningForexDailyNews()
+
+    print '----START CRAW INVESTING FOREX NEWS----'
+    InvestingNewsForexSpider.writeMorningForexDailyNews()
 
     print '----START CRAW CX STOCK NEWS----'
     try:
