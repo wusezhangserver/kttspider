@@ -10,7 +10,7 @@ def crawMorningDailyNews(linkUrl):
     resultList = browsor.find_elements_by_class_name('mt24')
     print resultList
     for div in resultList:
-        imageUrl = div.find_element_by_class_name('macroscopic-img').find_element_by_tag_name('img').get_attribute('src')
+        imageUrl = div.find_element_by_class_name('macroscopic-img').get_attribute('src')
         print imageUrl
 
     ##currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'CHINA','NBDNET'])
