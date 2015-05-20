@@ -11,11 +11,11 @@ def crawMorningForexDailyNews(link):
     contextList = browsor.find_elements_by_class_name('articleItem')
     for context in contextList:
         try:
-           linkUrl = context.find_element_by_class_name('img').get_attribute('href')
-           imageUrl = context.find_element_by_class_name('img').find_element_by_tag_name('img').get_attribute('src')
-           title = context.find_element_by_class_name('title').text
-           pubDate = CommonsInitValue.initNowTime()
-           descriptContext = context.find_element_by_tag_name('p').text
+            linkUrl = context.find_element_by_class_name('img').get_attribute('href')
+            imageUrl = context.find_element_by_class_name('img').find_element_by_tag_name('img').get_attribute('src')
+            title = context.find_element_by_class_name('title').text
+            pubDate = CommonsInitValue.initNowTime()
+            descriptContext = context.find_element_by_tag_name('p').text
         except NoSuchElementException,e:
             continue
         currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'FOREX','INVESTINGNET'])
