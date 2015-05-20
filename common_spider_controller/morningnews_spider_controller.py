@@ -89,7 +89,10 @@ def crawDailyNews():
     HTNewsNetSpider.writeMorningForexDailyNews()
 
     print '----START CRAW INVESTING FOREX NEWS----'
-    InvestingNewsForexSpider.writeMorningForexDailyNews()
+    try:
+        InvestingNewsForexSpider.writeMorningForexDailyNews()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'InvestingNewsForexSpider.writeMorningForexDailyNews',e])
 
     print '----START CRAW CX STOCK NEWS----'
     try:
