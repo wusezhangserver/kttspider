@@ -15,6 +15,7 @@ from mornnews_spider import QJNewsStockNetSpider
 from mornnews_spider import HTNewsNetSpider
 from mornnews_spider import CXNewsNetSpider
 from mornnews_spider import InvestingNewsForexSpider
+from mornnews_spider import InvestingNewsMetalSpider
 from commonutils_spider import CommonsRecodeErrorUtils
 from commonutils_spider import CommonsInitValue
 import uuid
@@ -93,6 +94,12 @@ def crawDailyNews():
         InvestingNewsForexSpider.writeMorningForexDailyNews()
     except Exception,e:
         currentList.append([currentTime,str(uuid.uuid1()),'InvestingNewsForexSpider.writeMorningForexDailyNews',e])
+
+    print '----START CRAW INVESTING METAL NEWS----'
+    try:
+        InvestingNewsMetalSpider.writeMorningMetalDailyNews()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'InvestingNewsMetalSpider.writeMorningMetalDailyNews',e])
 
     print '----START CRAW CX STOCK NEWS----'
     try:

@@ -4,7 +4,7 @@ from commonutils_spider import CommonsInitValue
 from selenium.common.exceptions import NoSuchElementException
 import uuid
 
-def crawMorningForexDailyNews(link):
+def crawMorningMetalDailyNews(link):
     currentList = []
     browsor = webdriver.PhantomJS()
     browsor.get(link)
@@ -18,17 +18,16 @@ def crawMorningForexDailyNews(link):
             descriptContext = context.find_element_by_tag_name('p').text
         except NoSuchElementException,e:
             continue
-        currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'FOREX','INVESTINGNET'])
+        currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'METAL','INVESTINGNET'])
     return currentList
 
-def writeMorningForexDailyNews():
-    link = 'http://cn.investing.com/news/%E7%BB%BC%E5%90%88%E6%80%A7%E6%96%B0%E9%97%BB'
-    currentArray = crawMorningForexDailyNews(link)
+def writeMorningMetalDailyNews():
+    link = 'http://cn.investing.com/news/%E5%95%86%E5%93%81-%E6%9C%9F%E8%B4%A7%E6%96%B0%E9%97%BB'
+    currentArray = crawMorningMetalDailyNews(link)
     dbManager = CommonsMysqlUtils._dbManager
-    SQL ="DELETE  FROM  MORNING_OTHERNEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = 'INVESTINGNET' AND  NEWSFLAG='FOREX'"
+    SQL ="DELETE  FROM  MORNING_OTHERNEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = 'INVESTINGNET' AND  NEWSFLAG='METAL'"
     dbManager.executeUpdateOrDelete(SQL)
     formatSQL = ' INSERT MORNING_OTHERNEWS_RESOURCE_TABLE' \
                 ' (KEYID,LINKURL,IMAGEURL,TITLE,PUBDATE,DESCRIPTCONTEXT,NEWSFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,currentArray)
-
