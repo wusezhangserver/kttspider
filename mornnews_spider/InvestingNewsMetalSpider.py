@@ -24,6 +24,7 @@ def crawMorningMetalDailyNews(link):
 def writeMorningMetalDailyNews():
     link = 'http://cn.investing.com/news/%E5%95%86%E5%93%81-%E6%9C%9F%E8%B4%A7%E6%96%B0%E9%97%BB'
     currentArray = crawMorningMetalDailyNews(link)
+    print currentArray
     dbManager = CommonsMysqlUtils._dbManager
     SQL ="DELETE  FROM  MORNING_OTHERNEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = 'INVESTINGNET' AND  NEWSFLAG='METAL'"
     dbManager.executeUpdateOrDelete(SQL)
@@ -31,3 +32,7 @@ def writeMorningMetalDailyNews():
                 ' (KEYID,LINKURL,IMAGEURL,TITLE,PUBDATE,DESCRIPTCONTEXT,NEWSFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,currentArray)
+
+
+if __name__ == '__main__':
+    writeMorningMetalDailyNews()
