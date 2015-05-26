@@ -2,7 +2,6 @@ from  selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from commonutils_spider import CommonsMysqlUtils
 import uuid
-import time
 
 def crawMorningStockDailyNews(linkUrl):
     currentList = []
