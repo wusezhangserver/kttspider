@@ -5,6 +5,7 @@ from mornnews_spider import FXNewsForexNetSpider
 from mornnews_spider import FXNewsMetalNetSpider
 from mornnews_spider import FXNewsFutureNetSpider
 from mornnews_spider import FXNewsStockNetSpider
+from mornnews_spider import FXNewsFinanceNetSpider
 from mornnews_spider import TakNewsStockNetSpider
 from mornnews_spider import YiCaiStockNetSpider
 from mornnews_spider import CNNewsNetSpider
@@ -55,7 +56,11 @@ def crawDailyNews():
     # CRAW FXNEWSSTOCK COMMENTS NEWS SIPDER
     print '----START CRAW FXNEWSSTOCK NEWS----'
     FXNewsStockNetSpider.writeMorningStockDailyNews()
-    
+
+    # CRAW FXNEWSFINANCE COMMENTS NEWS SIPDER
+    print '----START CRAW FXNEWSFINANCE NEWS----'
+    FXNewsFinanceNetSpider.writeMorningFinanceDailyNews()
+
     # CRAW TAKNEWSSTOCK COMMENTS NEWS SIPDER
     print '----START CRAW TAKNEWSSTOCK NEWS----'
     TakNewsStockNetSpider.writeFinanceHLDataSource()
