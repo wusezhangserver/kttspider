@@ -30,6 +30,3 @@ def writeDailyComments():
                 ' (KEYID,LINKURL,TITLE,PUBDATE,DESCRIPTCONTEXT,COMMENTFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,currentArray)
-
-if __name__ == '__main__':
-    writeDailyComments()
