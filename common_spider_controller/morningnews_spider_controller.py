@@ -8,7 +8,7 @@ from mornnews_spider import FXNewsStockNetSpider
 from mornnews_spider import FXNewsFinanceNetSpider
 from mornnews_spider import TakNewsStockNetSpider
 from mornnews_spider import YiCaiStockNetSpider
-from mornnews_spider import CNNewsNetSpider
+from mornnews_spider import CNNewsFinanceNetSpider
 from mornnews_spider import XQNewsNetSpider
 from mornnews_spider import QQNewsNetSpider
 from mornnews_spider import YiCaiFinanceNetSpider
@@ -19,6 +19,7 @@ from mornnews_spider import InvestingNewsForexSpider
 from mornnews_spider import InvestingNewsMetalSpider
 from mornnews_spider import ZBNewsFinanceNetSpider
 from mornnews_spider import IFengNewsFinanceNetSpider
+from mornnews_spider import CNNewsFinanceNetSpider
 from commonutils_spider import CommonsRecodeErrorUtils
 from commonutils_spider import CommonsInitValue
 import uuid
@@ -76,7 +77,7 @@ def crawDailyNews():
 
     # CRAW 21CNNEWS NEWS SIPDER
     print '----START CRAW 21CNNEWS NEWS----'
-    CNNewsNetSpider.writeCNStockNetDailyNews()
+    CNNewsFinanceNetSpider.writeCNStockNetDailyNews()
 
     # CRAW XQ NEWS SIPDER #
     print '----START CRAW XQ NEWS----'
@@ -123,5 +124,11 @@ def crawDailyNews():
         ZBNewsFinanceNetSpider.writeZBNewsNetDataSource()
     except Exception, e:
         currentList.append([currentTime,str(uuid.uuid1()),'ZBNewsFinanceNetSpider.writeZBNewsNetDataSource',e])
+
+    print '----START CRAW CNNEWS FINANCE NEWS----'
+    try:
+        CNNewsFinanceNetSpider.writeCNStockNetDailyNews()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'CNNewsFinanceNetSpider.writeCNStockNetDailyNews',e])
 
     CommonsRecodeErrorUtils.commonRedcodeError(currentList)
