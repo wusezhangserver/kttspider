@@ -1,6 +1,5 @@
 from comment_spider import HuiTongNetSpider
 from comment_spider import AdsNetSpider
-from comment_spider import ForexNetSpider
 from comment_spider import GXMetalNetSpider
 from comment_spider import JTMetalNetSpider
 from comment_spider import SYMetalNetSpider
@@ -29,11 +28,7 @@ def crawCommentsNews():
     # CRAW ADSNET COMMENTS NEWS SIPDER
     print '----START CRAW ADSNET COMMENTS NEWS----'
     AdsNetSpider.writeDailyComments()
-    
-    # CRAW FOREXNET COMMENTS NEWS SIPDER
-    print '----START CRAW FOREXNET COMMENTS NEWS----'
-    ForexNetSpider.writeDailyComments()
-    
+
     # CRAW GXMETAL COMMENTS NEWS SIPDER
     print '----START CRAW GXMETAL COMMENTS NEWS----'
     GXMetalNetSpider.writeDailyMetalComments()
