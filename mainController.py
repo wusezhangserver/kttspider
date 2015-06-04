@@ -3,6 +3,7 @@ from common_spider_controller import headline_spider_controller
 from common_spider_controller import dailyblog_spider_controller
 from common_spider_controller import dailytheme_spider_controller
 from common_spider_controller import forexpic_spider_controller
+from common_spider_controller import dailycomment_spider_controller
 
 if __name__ == '__main__':
    print '********************************start spider  morningnews********************'
@@ -15,3 +16,5 @@ if __name__ == '__main__':
    dailytheme_spider_controller.crawThemeNews()
    print '********************************start spider forexpic************************'
    forexpic_spider_controller.updateDailyForexPic()
+   print '********************************start spider commentsnews************************'
+   dailycomment_spider_controller.crawCommentsNews()
