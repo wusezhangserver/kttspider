@@ -3,7 +3,7 @@ from commonutils_spider import CommonsInitValue
 from selenium import webdriver
 import uuid
 
-def crawCNFinanceNetDailyNews(link):
+def crawCNStockNetDailyNews(link):
     currentList = []
     browsor = webdriver.PhantomJS()
     browsor.get(link)
@@ -17,9 +17,9 @@ def crawCNFinanceNetDailyNews(link):
         currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'CHINA','21CNNET'])
     return currentList
 
-def writeCNFinanceNetDailyNews():
-    link = 'http://finance.21cn.com/news/macro/'
-    currentArray = crawCNFinanceNetDailyNews(link)
+def writeCNStockNetDailyNews():
+    link = 'http://finance.21cn.com/webfocus/internet/'
+    currentArray = crawCNStockNetDailyNews(link)
 
     dbManager = CommonsMysqlUtils._dbManager
     SQL = "DELETE  FROM  MORNING_FINANCENEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = '21CNNET' AND  NEWSFLAG='CHINA'"
