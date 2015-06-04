@@ -26,3 +26,6 @@ def returnCreateDate(text):
 def splitCreateDate(text,target,returnnum):
     listContext = text.split(target)
     return listContext[returnnum]
+
+def removeSpecialCharacter(removeContext):
+    return removeContext.replace('\n','').replace(' ','').replace('<br>','').replace('<p>','').replace('</p>','').replace('<br/>','')
