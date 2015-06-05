@@ -43,7 +43,7 @@ def swissquoteTodayNewsSpider(link):
 
 def writeSwissquoteTodayNews():
     link = 'http://apps.swissquote.com/rss/zh/DailyForexNews.rss'
-    currentResult = swissquoteTodayNewsSpider(link);
+    currentResult = swissquoteTodayNewsSpider(link)
     mysqlConn = SwissquoteSpiderUtils.getMySQLConn()
     mysqlCur = mysqlConn.cursor()
     
