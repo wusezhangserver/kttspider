@@ -26,6 +26,8 @@ def crawHeXunForexImage(link,keyList):
                 detaiArray.append([mianId,linkUrl])
         except NoSuchElementException,e:
             continue
+    print keyList
+    print (detaiArray)
     HeXunForexImageDetailSpider.writeHeXunForexImageDetail(detaiArray)
     return currentArray
 
@@ -45,3 +47,6 @@ def writeHeXunForexImage():
     formatSQL = ' INSERT INTO  FOREXPIC_PICTURE_RESOURCE_TABLE(ID,IMAGEURL,LINKURL,PUBDATE,SOURCEFLAG,DISCRIPTIONTEXT)' \
                 ' VALUES(%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(formatSQL,currentArray)
+
+if __name__ == '__main__':
+    writeHeXunForexImage()
