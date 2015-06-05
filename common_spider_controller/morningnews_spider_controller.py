@@ -53,6 +53,18 @@ def crawDailyNews():
     except Exception, e:
         currentList.append([currentTime,str(uuid.uuid1()),'CNNewsStockNetSpider.writeCNStockNetDailyNews()',e])
 
+    print '----START CRAW CX STOCK NEWS----'
+    try:
+        CXNewsNetSpider.writeMorningDailyNews()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'CXNewsNetSpider.writeMorningDailyNews',e])
+
+    print '----START CRAW ZB FINANCE NEWS----'
+    try:
+        ZBNewsFinanceNetSpider.writeZBNewsNetDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'ZBNewsFinanceNetSpider.writeZBNewsNetDataSource',e])
+
     # CRAW NBDNEWS COMMENTS NEWS SIPDER
     print '----START CRAW NBDNEWS NEWS----'
     NBDNewsNetSpider.writeMorningDailyNews()
@@ -120,19 +132,5 @@ def crawDailyNews():
         InvestingNewsMetalSpider.writeMorningMetalDailyNews()
     except Exception,e:
         currentList.append([currentTime,str(uuid.uuid1()),'InvestingNewsMetalSpider.writeMorningMetalDailyNews',e])
-
-    print '----START CRAW CX STOCK NEWS----'
-    try:
-        CXNewsNetSpider.writeMorningDailyNews()
-    except Exception, e:
-        currentList.append([currentTime,str(uuid.uuid1()),'CXNewsNetSpider.writeMorningDailyNews',e])
-
-    print '----START CRAW ZB FINANCE NEWS----'
-    try:
-        ZBNewsFinanceNetSpider.writeZBNewsNetDataSource()
-    except Exception, e:
-        currentList.append([currentTime,str(uuid.uuid1()),'ZBNewsFinanceNetSpider.writeZBNewsNetDataSource',e])
-
-
 
     CommonsRecodeErrorUtils.commonRedcodeError(currentList)
