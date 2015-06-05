@@ -8,7 +8,6 @@ from comment_spider import HGStockNetSpider
 from comment_spider import JFStockNetSpider
 from comment_spider import QJStockNetSpider
 from comment_spider import QJFinanceNetSpider
-from comment_spider import IFengFinanceNetSpider
 from comment_spider import SinaFinanceNetSpider
 from comment_spider import QQFinanceNetSpider
 from comment_spider import SilverMetalNetSpider
@@ -36,6 +35,21 @@ def crawCommentsNews():
         GXMetalNetSpider.writeDailyMetalComments()
     except Exception,e:
         currentList.append([currentTime,str(uuid.uuid1()),' GXMetalNetSpider.writeDailyMetalComments()',e])
+
+    print '----START CRAW ERROR INFORMATION----'
+
+    # CRAW JFStock COMMENTS NEWS SIPDER
+    print '----START CRAW JFStock COMMENTS NEWS----'
+    try:
+        JFStockNetSpider.writeDailyStockComments()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),' JFStockNetSpider.writeDailyStockComments()',e])
+
+
+
+
+
+
 
     print '----START CRAW ERROR INFORMATION----'
     CommonsRecodeErrorUtils.commonRedcodeError(currentList)
