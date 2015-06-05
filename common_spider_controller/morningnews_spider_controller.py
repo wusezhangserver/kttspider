@@ -40,6 +40,19 @@ def crawDailyNews():
         QQNewsNetSpider.writeMorningQQDailyNews()
     except Exception,e:
         print e
+
+    print '----START CRAW CNNEWS FINANCE NEWS----'
+    try:
+        CNNewsFinanceNetSpider.writeCNFinanceNetDailyNews()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'CNNewsFinanceNetSpider.writeCNStockNetDailyNews',e])
+
+    print '----START CRAW CNNEWS STOCK NEWS----'
+    try:
+        CNNewsStockNetSpider.writeCNStockNetDailyNews()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'CNNewsStockNetSpider.writeCNStockNetDailyNews()',e])
+
     # CRAW NBDNEWS COMMENTS NEWS SIPDER
     print '----START CRAW NBDNEWS NEWS----'
     NBDNewsNetSpider.writeMorningDailyNews()
@@ -87,7 +100,7 @@ def crawDailyNews():
         currentList.append([currentTime,str(uuid.uuid1()),'YiCaiFinanceNetSpider.writeFinanceHLDataSource',e])
 
     # CRAW QJ STOCK NEWS SIPDER #
-    print  '----START CRAW QJ STOCK NEWS----'
+    print '----START CRAW QJ STOCK NEWS----'
     QJNewsStockNetSpider.writeMorningQJDailyStockNews()
 
     print '----START CRAW HT FOREX NEWS----'
@@ -114,23 +127,12 @@ def crawDailyNews():
     except Exception, e:
         currentList.append([currentTime,str(uuid.uuid1()),'CXNewsNetSpider.writeMorningDailyNews',e])
 
-
     print '----START CRAW ZB FINANCE NEWS----'
     try:
         ZBNewsFinanceNetSpider.writeZBNewsNetDataSource()
     except Exception, e:
         currentList.append([currentTime,str(uuid.uuid1()),'ZBNewsFinanceNetSpider.writeZBNewsNetDataSource',e])
 
-    print '----START CRAW CNNEWS FINANCE NEWS----'
-    try:
-        CNNewsFinanceNetSpider.writeCNFinanceNetDailyNews()
-    except Exception, e:
-        currentList.append([currentTime,str(uuid.uuid1()),'CNNewsFinanceNetSpider.writeCNStockNetDailyNews',e])
 
-    print '----START CRAW CNNEWS STOCK NEWS----'
-    try:
-        CNNewsStockNetSpider.writeCNStockNetDailyNews()
-    except Exception, e:
-        currentList.append([currentTime,str(uuid.uuid1()),'CNNewsStockNetSpider.writeCNStockNetDailyNews()',e])
 
     CommonsRecodeErrorUtils.commonRedcodeError(currentList)
