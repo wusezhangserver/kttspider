@@ -45,8 +45,11 @@ def crawCommentsNews():
     except Exception,e:
         currentList.append([currentTime,str(uuid.uuid1()),' JFStockNetSpider.writeDailyStockComments()',e])
 
-
-
+    print '----START CRAW JTMetal COMMENTS NEWS----'
+    try:
+        JTMetalNetSpider.writeDailyMetalComments()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'JTMetalNetSpider.writeDailyMetalComments()',e])
 
 
 
