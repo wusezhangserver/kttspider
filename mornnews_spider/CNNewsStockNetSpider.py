@@ -14,7 +14,7 @@ def crawCNStockNetDailyNews(link):
         descriptContext = context.find_element_by_class_name('pic-details').text
         pubDate = CommonsInitValue.initNowTime()
         imageUrl = CommonsInitValue.initTempImage()
-        currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'CHINA','21CNNET'])
+        currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'STOCK','21CNNET'])
     return currentList
 
 def writeCNStockNetDailyNews():
@@ -22,7 +22,7 @@ def writeCNStockNetDailyNews():
     currentArray = crawCNStockNetDailyNews(link)
 
     dbManager = CommonsMysqlUtils._dbManager
-    SQL = "DELETE  FROM  MORNING_FINANCENEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = '21CNNET' AND  NEWSFLAG='CHINA'"
+    SQL = "DELETE  FROM  MORNING_FINANCENEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = '21CNNET' AND  NEWSFLAG='STOCK'"
     dbManager.executeUpdateOrDelete(SQL)
 
     formatSQL = 'INSERT MORNING_FINANCENEWS_RESOURCE_TABLE' \
