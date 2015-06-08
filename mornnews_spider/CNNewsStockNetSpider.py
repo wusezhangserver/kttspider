@@ -12,7 +12,10 @@ def crawCNStockNetDailyNews(link):
         linkUrl = context.find_element_by_tag_name('a').get_attribute('href')
         title = context.find_element_by_tag_name('a').text
         descriptContext = context.find_element_by_class_name('pic-details').text
-        pubDate = CommonsInitValue.initNowTime()
+        timeText = context.find_element_by_class_name('time').text
+        datetime = CommonsInitValue.returnCreateDate(timeText)
+        currentTime = CommonsInitValue.splitCreateDate(timeText,' ',1)
+        pubDate =datetime+' '+currentTime
         imageUrl = CommonsInitValue.initTempImage()
         currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'STOCK','21CNNET'])
     return currentList
