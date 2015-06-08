@@ -1,5 +1,5 @@
 from selenium import webdriver
-from commonutils_spider  import CommonsMysqlUtils
+from commonutils_spider import CommonsMysqlUtils
 from commonutils_spider import CommonsInitValue
 from selenium.common.exceptions import NoSuchElementException
 import uuid

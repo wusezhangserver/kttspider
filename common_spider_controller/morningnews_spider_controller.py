@@ -1,5 +1,4 @@
 from mornnews_spider import HEJNewsNetSpider
-from mornnews_spider import NBDNewsNetSpider_BF
 from mornnews_spider import NBDNewsNetSpider
 from mornnews_spider import FXNewsForexNetSpider
 from mornnews_spider import FXNewsMetalNetSpider
