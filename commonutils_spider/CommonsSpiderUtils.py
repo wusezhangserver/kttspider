@@ -4,11 +4,11 @@ import urllib2
 
         
 #open url and read
-def  openUrl(webHttp):
-    urlopen  = urllib.urlopen(webHttp) 
+def openUrl(webHttp):
+    urlopen = urllib.urlopen(webHttp)
     context = urlopen.read()
     urlopen.close()
-    return  context
+    return context
 
 def openWebUrl(webHttp):
     req = urllib2.Request(webHttp)
@@ -31,7 +31,7 @@ def openInternetUrl(webHttp):
     req = urllib2.Request(webHttp,None,req_header)
     resp = urllib2.urlopen(req,None,req_timeout)
     html = resp.read()
-    resp.close();
+    resp.close()
     return html
 
 # filter context 

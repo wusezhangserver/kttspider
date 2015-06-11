@@ -1,4 +1,4 @@
-from  selenium import webdriver
+from selenium import webdriver
 from commonutils_spider import CommonsMysqlUtils
 
 
@@ -35,3 +35,6 @@ def writeMarginTradeDataSource():
     SQL = ' INSERT INTO DATACENTER_MARGINTRADE_RESOURCE_TABLE (JYRQ,RZMRE,RZYE,RQMCL,RQYL,RQYE,RZRQYE)' \
           ' VALUES(%s,%s,%s,%s,%s,%s,%s)'
     dbManager.executeManyInsert(SQL,currentArray)
+
+if __name__ == '__main__':
+    writeMarginTradeDataSource()
