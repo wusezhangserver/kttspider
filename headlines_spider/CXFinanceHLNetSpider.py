@@ -1,7 +1,7 @@
-import  time
-import  uuid
+import time
+import uuid
 from commonutils_spider import CommonsMysqlUtils
-from  selenium import webdriver
+from selenium import webdriver
 
 def  crawCXFinanceHLDataSource(link):
     currentList = []
