@@ -9,11 +9,10 @@ def crawFinanceHLDataSource(link):
     browsor.get(link)
     maincontext = browsor.find_element_by_id('news_pic').find_element_by_class_name('changeDiv')
     linkUrl = maincontext.find_element_by_tag_name('a').get_attribute('href')
-    title = maincontext.find_element_by_tag_name('a').text
     pubDate = CommonsInitValue.initNowTime()
     imageUrl = maincontext.find_element_by_tag_name('img').get_attribute('src')
-    print linkUrl+":"+title+":"+imageUrl
-    #currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'MACRO','TAKCHINA'])
+    title = maincontext.find_element_by_tag_name('img').get_attribute('alt')
+    currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,'[...]','MACRO','TAKCHINA'])
     return currentList
      
 def writeFinanceHLDataSource():
