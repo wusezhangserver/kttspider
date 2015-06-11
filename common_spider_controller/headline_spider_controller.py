@@ -2,7 +2,6 @@ from headlines_spider import ForbesFinanceHLNetSpider
 from headlines_spider import FortuneFinanceHLNetSpider
 from headlines_spider import FTFinanceHLNetSpider
 from headlines_spider import TakFinanceHLNetSpider
-from headlines_spider import NBDFinanceHLNetSpider
 from headlines_spider import CCTVFinanceHLNetSpider
 from headlines_spider import JRJFinanceHLNetSpider
 from headlines_spider import CXFinanceHLNetSpider
@@ -25,11 +24,7 @@ def crawDataCenter():
     # CRAW TAKFINANCEHL DATA SIPDER
     print '----START CRAW TAKFINANCEHL DATA----'
     TakFinanceHLNetSpider.writeFinanceHLDataSource()
-    
-    # CRAW NBDFINANCEHL DATA SIPDER
-    print '----START CRAW NBDFINANCEHL DATA----'
-    NBDFinanceHLNetSpider.writeFinanceHLDataSource()
-    
+
     # CRAW CCTVFINANCEHL DATA SIPDER
     print '----START CRAW CCTVFINANCEHL DATA----'
     try:
