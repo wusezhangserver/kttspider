@@ -33,11 +33,11 @@ def crawcommentsnews():
 if __name__ == '__main__':
     scheduler = BlockingScheduler()
     scheduler.add_job(crawdailynews, 'interval', seconds=3600)
-    scheduler.add_job(crawdatacenter,'interval',secondds=3600)
-    scheduler.add_job(updateblogdata,'interval',secondds=3600)
-    scheduler.add_job(crawthemenews,'interval',secondds=3600)
-    scheduler.add_job(updatedailyforexpic,'interval',secondds=3600)
-    scheduler.add_job(crawcommentsnews,'interval',secondds=3600)
+    scheduler.add_job(crawdatacenter,'interval',seconds=3600)
+    scheduler.add_job(updateblogdata,'interval',seconds=3600)
+    scheduler.add_job(crawthemenews,'interval',seconds=3600)
+    scheduler.add_job(updatedailyforexpic,'interval',seconds=3600)
+    scheduler.add_job(crawcommentsnews,'interval',seconds=3600)
     print('*************system spiders init now ***********')
 
     try:
