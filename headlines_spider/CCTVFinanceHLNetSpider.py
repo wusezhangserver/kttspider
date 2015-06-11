@@ -1,20 +1,20 @@
-import TakFinanceHLNetSpiderUtils
+import CCTVFinanceHLNetSpiderUtils
 import time
 import uuid
 
 def crawFinanceHLDataSource(link):
     currentList = []
     target ='<div class="show">'
-    startContext = TakFinanceHLNetSpiderUtils.returnStartContext(link,target)
-    startContext = TakFinanceHLNetSpiderUtils.filterContextByTarget(startContext,target, '<div class="hot">')
-    startContext = TakFinanceHLNetSpiderUtils.removeSpecialCharacter(startContext)
-    linkUrl = TakFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'<ahref="','"target')
-    startContext = TakFinanceHLNetSpiderUtils.filterAfterContext(startContext,'src')
-    imageUrl = TakFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'class="','"/></a>')
-    startContext = TakFinanceHLNetSpiderUtils.filterAfterContext(startContext,'<h3>')
-    title = TakFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'blank">','</a>')
-    descriptContext = TakFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'</h3>','</span>')
-    descriptContext = TakFinanceHLNetSpiderUtils.removeSpecialCharacter(descriptContext)
+    startContext = CCTVFinanceHLNetSpiderUtils.returnStartContext(link,target)
+    startContext = CCTVFinanceHLNetSpiderUtils.filterContextByTarget(startContext,target, '<div class="hot">')
+    startContext = CCTVFinanceHLNetSpiderUtils.removeSpecialCharacter(startContext)
+    linkUrl = CCTVFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'<ahref="','"target')
+    startContext = CCTVFinanceHLNetSpiderUtils.filterAfterContext(startContext,'src')
+    imageUrl = CCTVFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'class="','"/></a>')
+    startContext = CCTVFinanceHLNetSpiderUtils.filterAfterContext(startContext,'<h3>')
+    title = CCTVFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'blank">','</a>')
+    descriptContext = CCTVFinanceHLNetSpiderUtils.filterContextByTarget(startContext,'</h3>','</span>')
+    descriptContext = CCTVFinanceHLNetSpiderUtils.removeSpecialCharacter(descriptContext)
     pubDate = time.strftime("%Y-%m-%d",time.localtime()) 
     currentList.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'MACRO','CCTVCHINA'])
     return currentList
@@ -22,7 +22,7 @@ def crawFinanceHLDataSource(link):
 def writeFinanceHLDataSource():
     link = 'http://jingji.cntv.cn/stock/index.shtml'
     currentList = crawFinanceHLDataSource(link)
-    conn = TakFinanceHLNetSpiderUtils.getMySQLConn()
+    conn = CCTVFinanceHLNetSpiderUtils.getMySQLConn()
     cursor = conn.cursor()
     try:
         cursor.execute("DELETE  FROM  HEADLINE_FINANCENEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = 'CCTVCHINA'")
@@ -39,3 +39,6 @@ def writeFinanceHLDataSource():
         conn.rollback()
     cursor.close()
     conn.close()
+
+if __name__ == '__main__':
+    writeFinanceHLDataSource()
