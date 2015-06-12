@@ -112,7 +112,10 @@ def crawDailyNews():
 
     # CRAW QJ STOCK NEWS SIPDER #
     print '----START CRAW QJ STOCK NEWS----'
-    QJNewsStockNetSpider.writeMorningQJDailyStockNews()
+    try:
+        QJNewsStockNetSpider.writeMorningQJDailyStockNews()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'QJNewsStockNetSpider.writeMorningQJDailyStockNews()',e])
 
     print '----START CRAW HT FOREX NEWS----'
     HTNewsNetSpider.writeMorningForexDailyNews()
