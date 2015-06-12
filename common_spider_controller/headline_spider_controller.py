@@ -19,7 +19,10 @@ def crawDataCenter():
     
     # CRAW FTFINANCEHL DATA SIPDER
     print '----START CRAW FTFINANCEHL DATA----'
-    FTFinanceHLNetSpider.writeFinanceHLDataSource()
+    try:
+        FTFinanceHLNetSpider.writeFinanceHLDataSource()
+    except Exception,e:
+        print e
     
     # CRAW TAKFINANCEHL DATA SIPDER
     print '----START CRAW TAKFINANCEHL DATA----'
