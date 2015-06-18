@@ -19,6 +19,7 @@ from mornnews_spider import InvestingNewsMetalSpider
 from mornnews_spider import ZBNewsFinanceNetSpider
 from mornnews_spider import IFengNewsFinanceNetSpider
 from mornnews_spider import CNNewsFinanceNetSpider
+from mornnews_spider import XXCBNewsFinanceNetSpider
 from commonutils_spider import CommonsRecodeErrorUtils
 from commonutils_spider import CommonsInitValue
 import uuid
@@ -122,6 +123,9 @@ def crawDailyNews():
 
     print '----START CRAW IFeng FINANCE NEWS----'
     IFengNewsFinanceNetSpider.writeMorningFinanceDailyNews()
+
+    print '----START CRAW XXCB FINANCE NEWS----'
+    XXCBNewsFinanceNetSpider.writeMorningFinanceDailyNews()
 
     print '----START CRAW INVESTING FOREX NEWS----'
     try:
