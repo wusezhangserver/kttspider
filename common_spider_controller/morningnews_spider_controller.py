@@ -125,7 +125,10 @@ def crawDailyNews():
     IFengNewsFinanceNetSpider.writeMorningFinanceDailyNews()
 
     print '----START CRAW XXCB FINANCE NEWS----'
-    XXCBNewsFinanceNetSpider.writeMorningFinanceDailyNews()
+    try:
+        XXCBNewsFinanceNetSpider.writeMorningFinanceDailyNews()
+    except Exception,e:
+        currentList.append([currentTime,str(uuid.uuid1()),'XXCBNewsFinanceNetSpider.writeMorningFinanceDailyNews',e])
 
     print '----START CRAW INVESTING FOREX NEWS----'
     try:
