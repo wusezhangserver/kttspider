@@ -33,4 +33,6 @@ def writeMorningOilDailyNews():
     dbManager.executeManyInsert(formatSQL,currentArray)
 
 if __name__ == '__main__':
+
+
     writeMorningOilDailyNews()
