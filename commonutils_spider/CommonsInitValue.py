@@ -26,6 +26,14 @@ def returnCreateDate(text):
         group[1] ='0'+ group[1]
     return currentYear+'-'+ group[0]+'-'+group[1]
 
+def findcreatedate(text):
+    group = re.findall(r'[\d|.]+',text)
+    if len(group[1])<2:
+        group[1] ='0'+ group[0]
+    if len(group[2])<2:
+        group[2] ='0'+ group[1]
+    return group[0]+'-'+group[1]+'-'+group[2]
+
 def splitCreateDate(text,target,returnnum):
     listContext = text.split(target)
     return listContext[returnnum]
