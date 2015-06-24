@@ -16,22 +16,21 @@ def crawMorningOilDailyNews(linkUrl):
         linkUrl = context.find_element_by_tag_name('a').get_attribute('href')
         title = context.find_element_by_tag_name('a').text
         pubDate = CommonsInitValue.findcreatedate(context.find_element_by_tag_name('span').text)
-        print linkUrl+":"+title+":"+pubDate+":"+descriptContext
-    #currentArray.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'OIL','XIDU'])
+        currentArray.append([str(uuid.uuid1()),linkUrl,imageUrl,title,pubDate,descriptContext,'OIL','YHOIL'])
     return currentArray
 
 def writeMorningOilDailyNews():
     link = 'http://www.yahui.cc/oil/trend/'
     currentArray = crawMorningOilDailyNews(link)
-    #dbManager = CommonsMysqlUtils._dbManager
-    SQL = " DELETE  FROM  MORNING_OILNEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = 'XIDU' " \
+    dbManager = CommonsMysqlUtils._dbManager
+    SQL = " DELETE  FROM  MORNING_OILNEWS_RESOURCE_TABLE  WHERE  SOURCEFLAG = 'YHOIL' " \
           " AND  NEWSFLAG='OIL' "
-    #dbManager.executeUpdateOrDelete(SQL)
+    dbManager.executeUpdateOrDelete(SQL)
 
     formatSQL = 'INSERT MORNING_OILNEWS_RESOURCE_TABLE ' \
                 '(KEYID,LINKURL,IMAGEURL,TITLE,PUBDATE,DESCRIPTCONTEXT,NEWSFLAG,SOURCEFLAG)' \
                 ' VALUES (%s,%s,%s,%s,%s,%s,%s,%s)'
-    #dbManager.executeManyInsert(formatSQL,currentArray)
+    dbManager.executeManyInsert(formatSQL,currentArray)
 
 if __name__ == '__main__':
     writeMorningOilDailyNews()
