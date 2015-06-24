@@ -5,6 +5,7 @@ from common_spider_controller import dailytheme_spider_controller
 from common_spider_controller import forexpic_spider_controller
 from common_spider_controller import dailycomment_spider_controller
 from common_spider_controller import morningoil_spider_controller
+from common_spider_controller import datacenter_spider_controller
 
 def crawdailynews():
     print '********************************start spider  morningnews********************'
@@ -34,6 +35,10 @@ def crawcommentsnews():
     print '********************************start spider commentsnews************************'
     dailycomment_spider_controller.crawCommentsNews()
 
+def crawDataCenter():
+    print '********************************start spider datacenter************************'
+    datacenter_spider_controller.crawDataCenter()
+
 if __name__ == '__main__':
     crawdailynews()
     crawDailyOilNews()
@@ -42,3 +47,4 @@ if __name__ == '__main__':
     crawthemenews()
     updatedailyforexpic()
     crawcommentsnews()
+    crawDataCenter()

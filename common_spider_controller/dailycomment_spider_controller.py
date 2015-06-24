@@ -51,8 +51,5 @@ def crawCommentsNews():
     except Exception,e:
         currentList.append([currentTime,str(uuid.uuid1()),'JTMetalNetSpider.writeDailyMetalComments()',e])
 
-
-
-
     print '----START CRAW ERROR INFORMATION----'
     CommonsRecodeErrorUtils.commonRedcodeError(currentList)

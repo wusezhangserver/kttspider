@@ -5,9 +5,15 @@ from themenews_spider import YiCaiCompanyNewsSpider
 from themenews_spider import PwThemeNewsSpider
 from themenews_spider import CriCompanyNewsSpider
 from themenews_spider import StcnThemeNewsSpider
-
+from commonutils_spider import CommonsRecodeErrorUtils
+from commonutils_spider import CommonsInitValue
+import uuid
 
 def  crawThemeNews():
+
+    currentList = []
+    currentTime = CommonsInitValue.initNowTime()
+
     # CRAW THE IMPORT NEWS
     print '----START CRAW THE IMPORT NEWS----'
     ImportantNewsSpider.writeCompanyNews()
@@ -35,3 +41,5 @@ def  crawThemeNews():
     #CRAW THE StcnTheme NEWS
     print '----START CRAW THE StcnTheme NEWS----'
     StcnThemeNewsSpider.writeDailyThemeNews()
+
+    CommonsRecodeErrorUtils.commonRedcodeError(currentList)

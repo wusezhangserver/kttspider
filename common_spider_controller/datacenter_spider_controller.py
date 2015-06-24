@@ -10,16 +10,28 @@ from datacenter_spider import PMIDataNetSpider
 from datacenter_spider import SocialPowerDataNetSpider
 from datacenter_spider import DollarIndexDataNetSpider
 from datacenter_spider import MarginTradeDataNetSpider
+from commonutils_spider import CommonsRecodeErrorUtils
+from commonutils_spider import CommonsInitValue
+import uuid
 
-def  crawDataCenter():
+def crawDataCenter():
+
+    currentList = []
+    currentTime = CommonsInitValue.initNowTime()
 
     # CRAW FOREXGOLD DATA SIPDER
     print '----START CRAW FOREXGOLD DATA----'
-    ForexGoldDataNetSpider.writeForexGoldDataSource()
+    try:
+       ForexGoldDataNetSpider.writeForexGoldDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'ForexGoldDataNetSpider.writeForexGoldDataSource()',e])
     
     # CRAW MARKETSENTIMENT DATA SIPDER
     print '----START CRAW MARKETSENTIMENT DATA----'
-    MarketSentimentDataNetSpider.writeMarketSentimentDataSource()
+    try:
+        MarketSentimentDataNetSpider.writeMarketSentimentDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'MarketSentimentDataNetSpider.writeMarketSentimentDataSource',e])
     
     # CRAW STOCKACCOUNT DATA SIPDER
     print '----START CRAW STOCKACCOUNT DATA----'
@@ -31,36 +43,58 @@ def  crawDataCenter():
     
     # CRAW MarginTrade DATA SIPDER
     print '----START CRAW MarginTrade DATA----'
-    MarginTradeDataNetSpider.writeMarginTradeDataSource()
+    try:
+        MarginTradeDataNetSpider.writeMarginTradeDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'MarginTradeDataNetSpider.writeMarginTradeDataSource',e])
 
     # CRAW INDEXFUTURE DATA SIPDER
     print '----START CRAW INDEXFUTURE DATA----'
-    IndexFutureDataNetSpider.writeIndexFutureDataSource()
+    try:
+        IndexFutureDataNetSpider.writeIndexFutureDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'IndexFutureDataNetSpider.writeIndexFutureDataSource',e])
 
     #CRAW THE BULKCARGOTRANS DATA
     print '----START CRAW THE BULKCARGOTRANS DATA----'
-    BulkCargoTransDataNetSpider.writeBulkCargoTransDataSource()
+    try:
+        BulkCargoTransDataNetSpider.writeBulkCargoTransDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'BulkCargoTransDataNetSpider.writeBulkCargoTransDataSource',e])
 
     #CRAW THE SHIBOR DATA
     print '----START CRAW THE SHIBOR DATA----'
-    shiborDataNetSpider.writeShiborConceptDataSource()
+    try:
+       shiborDataNetSpider.writeShiborConceptDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'shiborDataNetSpider.writeShiborConceptDataSource',e])
 
     #CRAW THE LPR DATA
     print '-----START CRAW THE LPR DATA-----'
-    LPRDataNetSpider.writeLPRConceptDataSource()
+    try:
+        LPRDataNetSpider.writeLPRConceptDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'LPRDataNetSpider.writeLPRConceptDataSource',e])
 
     #CRAW THE PMI DATA#
     print '-----START CRAW THE PMI DATA-----'
-    PMIDataNetSpider.writePMIDataSource()
+    try:
+        PMIDataNetSpider.writePMIDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'PMIDataNetSpider.writePMIDataSource',e])
 
     #CRAW THE SOCIALPOWER#
     print '-----START CRAW THE SOCIALPOWER DATA-----'
-    SocialPowerDataNetSpider.writeSocialPowerDataSource()
+    try:
+        SocialPowerDataNetSpider.writeSocialPowerDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'SocialPowerDataNetSpider.writeSocialPowerDataSource',e])
 
     #CRAW THE DOLLARINDEX#
     print '-----START CRAW THE DOLLARINDEX DATA-----'
-    DollarIndexDataNetSpider.writeDollarIndexDataSource()
+    try:
+        DollarIndexDataNetSpider.writeDollarIndexDataSource()
+    except Exception, e:
+        currentList.append([currentTime,str(uuid.uuid1()),'DollarIndexDataNetSpider.writeDollarIndexDataSource',e])
 
-
-if __name__=='__main__':
-    crawDataCenter()
+    CommonsRecodeErrorUtils.commonRedcodeError(currentList)

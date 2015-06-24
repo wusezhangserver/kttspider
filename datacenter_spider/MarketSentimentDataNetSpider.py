@@ -6,7 +6,7 @@ def crawMarketSentimentDataSource(link):
     currentArray = []
     text = CommonsSpiderUtils.openInternetUrl(link)
     text = CommonsSpiderUtils.removeSpecialCharacter(text)
-
+    print text
     return currentArray
 
 def writeMarketSentimentDataSource():
