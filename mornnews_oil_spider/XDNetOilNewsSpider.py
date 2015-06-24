@@ -11,7 +11,7 @@ def crawMorningOilDailyNews(linkUrl):
     browsor.get(linkUrl)
     maincontext = browsor.find_element_by_class_name('news_list_all').find_elements_by_tag_name('li')
     for context in maincontext:
-        imageUrl = CommonsInitValue.initTempImage()
+        imageUrl = CommonsInitValue.initoiltempimage()
         descriptContext = context.find_element_by_tag_name('p').text
         linkUrl = context.find_element_by_tag_name('a').get_attribute('href')
         title = context.find_element_by_tag_name('a').text
