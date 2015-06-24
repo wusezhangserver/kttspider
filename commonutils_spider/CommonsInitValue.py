@@ -5,6 +5,9 @@ import re
 def initTempImage():
     return 'http://216.189.56.159/imagelib/initsource/initimage.png'
 
+def initoiltempimage():
+    return 'http://216.189.56.159/imagelib/initsource/oiltemp.jpg'
+
 def initNowTime():
     return  time.strftime("%Y-%m-%d %X",time.localtime())
 
